@@ -4,4 +4,11 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: true
   validates :country_of_origin, presence: true
+
+  before_save(:titleize_product)
+
+  private
+    def titleize_product
+      self.name = self.name.titleize
+    end
 end
