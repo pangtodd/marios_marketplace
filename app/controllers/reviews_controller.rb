@@ -7,9 +7,9 @@ class ReviewsController < ApplicationController
 
   def create
     @product = Product.find(params[:product_id])
-    @review = @product.reviewss.new(review_params)
+    @review = @product.reviews.new(review_params)
     if @review.save
-      redirect_to project_path(@project)
+      redirect_to product_path(@product)
     else
       render :new
     end
@@ -18,8 +18,30 @@ class ReviewsController < ApplicationController
   def show
     @product =Product.find(params[:product_id])
     @review = Review.find(params[:id])
-  render :show
-end
+    render :show
+  end
+
+  def edit
+    @product = Product.find(params[:product_id])
+    @review = Review.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to product_path(@review.product)
+    else
+      @product = Product.find(params[:product_id])
+      render :edit
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to product_path(@review.product)
+  end
 
 private
   def review_params
