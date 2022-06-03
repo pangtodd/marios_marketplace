@@ -3,4 +3,5 @@ class Review < ApplicationRecord
   validates :author, presence: true
   validates :content_body, presence: true
   validates :rating, presence: true
+  validates :rating, numericality: true
 end
