@@ -19,4 +19,12 @@ describe "add a review to a product" do
     expect(page).to have_content 'Review successfully added!'
     expect(page).to have_content '3 stars, review by Skinny Pete'
   end
+  it "gives an error when no name is entered" do
+    visit products_path
+    click_on('Slim Jims', match: :first)
+    click_on 'Add a review'
+    click_on "Create Review"
+    expect(page).to have_content "Author can't be blank"
+  end
+
 end
