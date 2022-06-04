@@ -1,5 +1,34 @@
 <h1>Products</h1>
 
+<h3>Welcome to Mario's Marketplace!<h3>
+
+<p>For over 30 years, Mario's has been the Tri-state area's go to spot for hard-to-find items! Please view our products below, and feel free to leave a review.</p>
+
+<h3>new additions!<h3>
+<% if @products.any? %>
+  <ul>
+    <% @products.three_most_recent.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Hold your horses, we're still stocking our shelves!</p>
+<% end %>
+
+<h3>Proudly made in the USA!</h3>
+<% if @products.from_usa.any? %>
+  <ul>
+    <% @products.from_usa.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Hold your horses, we're still stocking our shelves!</p>
+<% end %>
+
+<h3>Spotlight: our most reviewed product!</h3>
+
+<h3>all products</h3>
 <% if @products.any? %>
   <ul>
     <% @products.each do |product| %>
