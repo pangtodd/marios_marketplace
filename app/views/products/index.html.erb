@@ -1,8 +1,6 @@
-<h1>Products</h1>
+<h1>Welcome to Mario's Market!</h1>
 
-<h3>Welcome to Mario's Marketplace!<h3>
-
-<p>For over 30 years, Mario's has been a proud community member of the Tri-state area! In addition to serving the best Pizza at our famous restaurant, we are also the go-to spot for hard-to-find items! Please view our products below, and feel free to leave a review.</p>
+<p>For over 30 years, Mario's has been a proud member of the Tri-state area community! In addition to serving <a href="https://pangtodd.github.io/PizzaParlor/">the best Pizza</a> in the area, we are also the go-to spot for hard-to-find items! Please view our products below, and feel free to leave a review.</p>
 
 <% if @products.any? %>
   <h3>new additions!<h3>
@@ -33,7 +31,7 @@
       <% end %>
     </ul>
 <% else %>
-  <p>Hold your horses, we're still stocking our shelves!</p>
+  <p>Hold your horses, we're still stocking the shelves!</p>
 <% end %>
 
 <p><%= link_to "Enter new product", new_product_path %></p>

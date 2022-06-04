@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
-  scope :from_usa, -> { where(country_of_origin: "USA")}
+  scope :from_usa, -> { where(country_of_origin: "United States of America")}
+  # "United States of America" is due to faker input
   scope :three_most_recent, -> { order(created_at: :desc).limit(3)}
   scope :most_reviews, -> {(
     select("products.id, products.name, count(reviews.id) as reviews_count")
