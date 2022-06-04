@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang ="en">
   <head>
     <title>MariosMarketplace</title>
     <%= csrf_meta_tags %>
@@ -10,12 +10,23 @@
   </head>
 
   <body>
-    <a href="/">Home</a>
-    <br>
-    <br>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
+    <header class="container">
+      <nav class = "navbar navbar-default">
+        <div class="navbar-header">
+          <%= link_to "home", root_path, class: "navbar-brand" %>
+          <%= image_tag "marketplace2.jpg" %>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "add product", new_product_path%> </li>
+          <li> <a href="https://pangtodd.github.io/PizzaParlor/">Mario's Hideout Pizza</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <%= yield %>
+    <section class="container">
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
+      <%= yield %>
+    </section>
   </body>
 </html>
