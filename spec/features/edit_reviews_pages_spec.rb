@@ -7,6 +7,7 @@ describe "add a review to a product" do
     fill_in 'Price', :with => 2.69
     select "United States of America", :from =>"product[country_of_origin]"
     click_on 'Create Product'
+    click_on "All products"
     click_on('Slim Jims', match: :first)
     click_on "Add a review"
     fill_in "Author", :with=> "Skinny Pete"
@@ -17,6 +18,7 @@ describe "add a review to a product" do
 
   it "edits a review" do
     visit products_path
+    click_on "All products"
     click_on('Slim Jims', match: :first)
     click_on '3 stars, review by Skinny Pete'
     click_on 'Edit review'
@@ -30,6 +32,7 @@ describe "add a review to a product" do
 
   it "returns an error if a field is blank." do
     visit products_path
+    click_on "All products"
     click_on('Slim Jims', match: :first)
     click_on '3 stars, review by Skinny Pete'
     click_on 'Edit review'
@@ -40,6 +43,7 @@ describe "add a review to a product" do
 
   it "is able to delete a review." do
     visit products_path
+    click_on "All products"
     click_on('Slim Jims', match: :first)
     click_on '3 stars, review by Skinny Pete'
     click_on 'Delete review'

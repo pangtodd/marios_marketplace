@@ -10,6 +10,7 @@ describe "add a review to a product" do
   end
   it "creates a review for an existing product" do
     visit products_path
+    click_on "All products"
     click_on('Slim Jims', match: :first)
     click_on "Add a review"
     fill_in "Author", :with=> "Skinny Pete"
@@ -21,6 +22,7 @@ describe "add a review to a product" do
   end
   it "gives an error when no name is entered" do
     visit products_path
+    click_on "All products"
     click_on('Slim Jims', match: :first)
     click_on 'Add a review'
     click_on "Create Review"

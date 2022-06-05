@@ -8,6 +8,7 @@ describe "the add a product process" do
     fill_in 'Price', :with => '10.99'
     select "Italy", :from =>"product[country_of_origin]"
     click_on 'Create Product'
+    click_on "All products"
     expect(page).to have_content 'Product successfully added!'
     expect(page).to have_content 'Mango Blasters'
   end
