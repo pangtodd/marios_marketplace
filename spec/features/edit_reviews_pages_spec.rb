@@ -38,4 +38,12 @@ describe "add a review to a product" do
     expect(page).to have_content "Author can't be blank"
   end
 
+  it "is able to delete a review." do
+    visit products_path
+    click_on('Slim Jims', match: :first)
+    click_on '3 stars, review by Skinny Pete'
+    click_on 'Delete review'
+    expect(page).to_not have_content "3 stars, review by Skinny Pete"
+  end
+
 end
