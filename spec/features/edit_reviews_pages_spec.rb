@@ -14,6 +14,7 @@ describe "add a review to a product" do
     fill_in "Rating", :with=> 3
     click_on "Create Review"
   end
+
   it "edits a review" do
     visit products_path
     click_on('Slim Jims', match: :first)
@@ -25,6 +26,16 @@ describe "add a review to a product" do
     click_on 'Update Review'
     expect(page).to have_content '4 stars, review by Just Pete'
     expect(page).to have_content 'Review successfully updated!'
+  end
+
+  it "returns an error if a field is blank." do
+    visit products_path
+    click_on('Slim Jims', match: :first)
+    click_on '3 stars, review by Skinny Pete'
+    click_on 'Edit review'
+    fill_in "Author", :with=> ""
+    click_on 'Update Review'
+    expect(page).to have_content "Author can't be blank"
   end
 
 end
