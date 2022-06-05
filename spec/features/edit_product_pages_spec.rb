@@ -9,6 +9,7 @@ describe "edit a product process" do
     select "Italy", :from =>"product[country_of_origin]"
     click_on 'Create Product'
   end
+
   it "edits an existing product" do
     visit products_path
     click_on('Mango Blasters', match: :first)
@@ -20,4 +21,12 @@ describe "edit a product process" do
     expect(page).to have_content 'Product successfully updated!'
     expect(page).to have_content 'Mega Mango Blasters'
   end
+
+  it "is able to delete an existing product" do
+    visit products_path
+    click_on('Mango Blasters', match: :first)
+    click_on('Delete')
+    expect(page).to_not have_content "Mango Blasters"
+  end
+
 end
