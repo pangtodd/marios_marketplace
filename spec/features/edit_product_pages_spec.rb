@@ -29,4 +29,13 @@ describe "edit a product process" do
     expect(page).to_not have_content "Mango Blasters"
   end
 
+  it "returns an error if a field is blank." do
+    visit products_path
+    click_on('Mango Blasters', match: :first)
+    click_on 'Edit'
+    fill_in "Name", :with=> ""
+    click_on 'Update Product'
+    expect(page).to have_content "Name can't be blank"
+  end
+
 end
