@@ -11,12 +11,13 @@
 
   <body>
     <header class="container">
-      <nav class = "navbar navbar-default">
+      <%= image_tag "marketplace2.jpg" %>
+      <nav class = "navbar navbar-light bg-light">
         <div class="navbar-header">
           <%= link_to "home", root_path, class: "navbar-brand" %>
-          <%= image_tag "marketplace2.jpg" %>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to "all products", products_path%> </li>
           <li><%= link_to "add product", new_product_path%> </li>
           <li> <a href="https://pangtodd.github.io/PizzaParlor/">Mario's Hideout Pizza</a></li>
         </ul>
