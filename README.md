@@ -43,6 +43,7 @@ Using Ruby on Rails and Postgres, this application allows a Mario's Market to ma
 * Type "rails s" into your terminal. This should launch Rails.
 * Please note, this application was built with a Mac system. You may need to make adjustments (such as creating adding/hiding your Postgres password, or using slightly different commands to launch Postgres) if using a PC.
 * In a browswer, type in "localhost:3000". You should be able to navigate like a normal website.
+* In your terminal, type in "rspec" to run established tests and make sure everything is still working (all tests should pass.)
 
 ## Known Bugs
 
