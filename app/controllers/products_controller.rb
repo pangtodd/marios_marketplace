@@ -48,6 +48,10 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def home
+    @products = Product.all
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :price, :country_of_origin)
