@@ -22,4 +22,6 @@
 <% end %>
 <br>
 <br>
-<p><%= link_to "Enter new product", new_product_path %></p>
+<%if is_admin?%>
+  <a class = "btn btn-primary" href='/products/new' role="button">Enter new product</a>
+<%end%>
