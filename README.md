@@ -19,12 +19,18 @@ An application which tracks products, and accepts users' reviews of products
 
 
 ## Description:
-Using Ruby on Rails and Postgres, this application allows a Mario's Market to manage products and maintain reviews of products. Both products and reviews are able to be created, read, updated, and deleted, demonstrating full CRUD capabilities. In designing this application, the following user stories were addressed:
+Using Ruby on Rails and Postgres, this application allows a Mario's Market admin or customer to sign in and manage products and maintain reviews of products. Admins posess full CRUD capabilities for both products and reviews; signed in users can create reviews; all visitors (admins, signed-in users, or visitors not signed in) can view products and reviews. In designing this application, the following user stories were addressed:
 
-* Admin users/store employees should be able to add, update and delete new products. 
-* All users (employees and customers) should be able to click an individual product to see its detail page.
-* All users should be able to add a review to a product.
-* Admin users/store employees should be able to edit and delete reviews (at this point, assuming all users are employees)
+* All users, logged in or not, should be able to see all products and reviews,
+* All userss should be able to click an individual product to see its detail page.
+* Users should be able to create an account and become verified/signed in users.
+* Signed in users should be able to add a review to a product. (A product can have many comments.) This is the only CRUD functionality a verfied user can have.
+* Admins/store employees should be able to edit and delete reviews 
+* Admins should be able to log in and log out of the application.
+* Admins should be able to add, update and delete products.
+* Admins should be able to add reviews.
+* Admins should have key permissions; other users don't have access to CRUD functionality (aside from creating a review).
+
 
 
 ## Setup/Installation Requirements
@@ -43,7 +49,7 @@ Using Ruby on Rails and Postgres, this application allows a Mario's Market to ma
 * Type "rails s" into your terminal. This should launch Rails.
 * Please note, this application was built with a Mac system. You may need to make adjustments (such as creating adding/hiding your Postgres password, or using slightly different commands to launch Postgres) if using a PC.
 * In a browswer, type in "localhost:3000". You should be able to navigate like a normal website.
-* In your terminal, type in "rspec" to run established tests and make sure everything is still working (all tests should pass.)
+* In your terminal, type in "rspec" to run established tests and make sure everything is still working as expected (all tests should pass.)
 
 ## Known Bugs
 
