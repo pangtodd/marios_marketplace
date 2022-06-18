@@ -2,12 +2,10 @@ require 'rails_helper'
 
 describe "edit a product process" do
   before(:each)do
-    visit products_path
-    click_link 'Enter new product'
-    fill_in 'Name', :with => 'mango blasters'
-    fill_in 'Price', :with => 10.99
-    select "Italy", :from =>"product[country_of_origin]"
-    click_on 'Create Product'
+  user = User.create!(:email => 'testy@test.com', :password => 'password123', :admin => true)
+  product = Product.create!(:name => 'Mango Blasters', :price => 2.69, :country_of_origin => "France")
+  login_as(user, :scope => :user)
+  visit products_path
   end
 
   it "edits an existing product" do
