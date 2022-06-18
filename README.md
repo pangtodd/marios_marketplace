@@ -1,9 +1,9 @@
 # README
-# Mario's Market (part I)
+# Mario's Market
 
 #### By Todd Pangilinan
 
-An application which tracks products, and accepts users' reviews of products
+An application which allows users and admins to sign in, create accounts, track products, and post users'reviews of products.
 
 ## Technologies used:
 

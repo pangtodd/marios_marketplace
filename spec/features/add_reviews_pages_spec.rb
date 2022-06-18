@@ -2,14 +2,12 @@ require 'rails_helper'
 
 describe "add a review to a product" do
   before(:each)do
-    visit new_product_path
-    fill_in 'Name', :with => 'slim jims'
-    fill_in 'Price', :with => 2.69
-    select "United States of America", :from =>"product[country_of_origin]"
-    click_on 'Create Product'
+    user = User.create!(:email => 'testy@test.com', :password => 'password123')
+    product = Product.create!(:name => 'slim jims', :price => 2.69, :country_of_origin => "United States of America")
+    login_as(user, :scope => :user)
+    visit products_path
   end
   it "creates a review for an existing product" do
-    visit products_path
     click_on "All products"
     click_on('Slim Jims', match: :first)
     click_on "Add a review"
