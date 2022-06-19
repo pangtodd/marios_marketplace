@@ -12,14 +12,16 @@ An application which allows users and admins to sign in, create accounts, track 
 * RSPEC
 * Capybara
 * shoulda-matchers
+* SimpleCov
 * Pry
+* Devise
 * markdown
 * Postgres
 * SQL
 
 
 ## Description:
-Using Ruby on Rails and Postgres, this application allows a Mario's Market admin or customer to sign in and manage products and maintain reviews of products. Admins posess full CRUD capabilities for both products and reviews; signed in users can create reviews; all visitors (admins, signed-in users, or visitors not signed in) can view products and reviews. In designing this application, the following user stories were addressed:
+Using Ruby on Rails and Postgres, this application allows a customer or employee (admin) to sign in to the Mario's Market website. From there, admins can manage products and general users can add reviews of products. Admins posess full CRUD capabilities for both products and reviews; signed in users can create reviews; all visitors (admins, signed-in users, or visitors not signed in) can view products and reviews. In designing this application, the following user stories were addressed:
 
 * All users, logged in or not, should be able to see all products and reviews,
 * All userss should be able to click an individual product to see its detail page.
@@ -30,8 +32,6 @@ Using Ruby on Rails and Postgres, this application allows a Mario's Market admin
 * Admins should be able to add, update and delete products.
 * Admins should be able to add reviews.
 * Admins should have key permissions; other users don't have access to CRUD functionality (aside from creating a review).
-
-
 
 ## Setup/Installation Requirements
 
@@ -50,10 +50,13 @@ Using Ruby on Rails and Postgres, this application allows a Mario's Market admin
 * Please note, this application was built with a Mac system. You may need to make adjustments (such as creating adding/hiding your Postgres password, or using slightly different commands to launch Postgres) if using a PC.
 * In a browswer, type in "localhost:3000". You should be able to navigate like a normal website.
 * In your terminal, type in "rspec" to run established tests and make sure everything is still working as expected (all tests should pass.)
+* You can create new users via the website, and they should be able to add reviews to existing products.
+* To create an admin, first create a user via the website, then in your terminal open the rail console by typing in **"rails c"**. Then type in: 
+**"User.where(email:"[whatever email your user had]").update(admin: true)"**
 
 ## Known Bugs
 
-As of 6/4/22:
+As of 6/18/22:
 * multiple entries are allowed in reviews. If you go to edit a review and leave it as-is and hit enter, it will populate in the database again.
 * Currency display is slightly off- the numbers are always accurate, but it doesn't always display final zeros. IE, 10.50 is displayed as 10.5. 
 * no other known bugs.
