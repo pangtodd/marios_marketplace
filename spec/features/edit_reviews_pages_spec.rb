@@ -29,6 +29,16 @@ describe "add a review to a product" do
     expect(page).to have_content 'Review successfully updated!'
   end
 
+  it "doesn't allow non-admin users to edit reviews" do
+    user2 = User.create!(:email => 'testier@test.com', :password => 'Password@123')
+    login_as(user2, :scope => :user)
+    visit products_path
+    click_on "All products"
+    click_on('Slim Jims', match: :first)
+    expect(page).not_to have_content "Edit review"
+    #edit link hidden if not an admin.
+  end
+
   it "returns an error if a field is blank." do
     click_on 'Edit review'
     fill_in "Author", :with=> ""
@@ -40,5 +50,4 @@ describe "add a review to a product" do
     click_on 'Delete review'
     expect(page).to_not have_content "3 stars, review by Skinny Pete"
   end
-
 end
