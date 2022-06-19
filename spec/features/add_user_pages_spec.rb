@@ -11,4 +11,15 @@ describe "add a user" do
     expect(page).to have_content "Welcome! You have signed up successfully."
     expect(page).to have_content "bobbyfromdablock@bobby.com: sign out"
   end
+
+  it "allows a registered user to login." do
+    user = User.create!(:email => 'testy@test.com', :password => 'password123')
+    visit home_path
+    click_on "sign in"
+    fill_in "user_email", :with => "testy@test.com"
+    fill_in "user_password", :with=> "password123"
+    click_button "Log in"
+    expect(page).to have_content "Signed in successfully."
+    expect(page).to have_content "testy@test.com: sign out"
+  end
 end
