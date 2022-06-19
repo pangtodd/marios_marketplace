@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 describe "the add a product process" do
+  before(:each) do
+    user = User.create!(:email => 'testy@test.com', :password => 'Password@123', :admin => true)
+    login_as(user, :scope => :user)
+  end
+
   it "adds a new product" do
     visit products_path
-    click_link 'Enter new product'
+    click_link 'add product'
     fill_in 'Name', :with => 'mango blasters'
     fill_in 'Price', :with => '10.99'
     select "Italy", :from =>"product[country_of_origin]"

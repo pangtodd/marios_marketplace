@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "add a review to a product" do
   before(:each)do
-    user = User.create!(:email => 'testy@test.com', :password => 'password123')
+    user = User.create!(:email => 'testy@test.com', :password => 'Password@123')
     product = Product.create!(:name => 'slim jims', :price => 2.69, :country_of_origin => "United States of America")
     login_as(user, :scope => :user)
     visit products_path
