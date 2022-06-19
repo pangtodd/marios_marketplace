@@ -40,7 +40,7 @@ Using Ruby on Rails and Postgres, this application allows a customer or employee
 * Clone my git hub directory by typing or cutting pasting: "git clone https://github.com/pangtodd/marios_marketplace.git" into your terminal
 * To run this program, you must have Ruby 2.6.5 and Rails 5.2.0 installed on your machine. If you do not, you can follow these instructions: [Mac](https://www.learnhowtoprogram.com/ruby-and-rails-part-time/getting-started-with-ruby/installing-ruby-on-mac) or [PC](https://www.learnhowtoprogram.com/ruby-and-rails-part-time/getting-started-with-ruby/installing-ruby-on-windows).
 * Once you have the project downloaded, navigate to the root of the project in your terminal and type "bundle install".
-* you will also need Postgres installed on your machine. If you do not, you can follow these [instructions.](https://www.learnhowtoprogram.com/ruby-and-rails-part-time/getting-started-with-ruby/installing-postgres). 
+* you will also need Postgres installed on your machine. If you do not, you can follow these [instructions.](https://www.learnhowtoprogram.com/ruby-and-rails-part-time/getting-started-with-ruby/installing-postgres)
 * In the terminal at the root of the project, type "Postgres" to make sure Postgres is running.
 * Type "rake db:create"
 * Type "rake db:migrate"
@@ -53,6 +53,7 @@ Using Ruby on Rails and Postgres, this application allows a customer or employee
 * You can create new users via the website, and they should be able to add reviews to existing products.
 * To create an admin, first create a user via the website, then in your terminal open the rail console by typing in **"rails c"**. Then type in: 
 **"User.where(email:"[whatever email your user had]").update(admin: true)"**
+* If you ran faker to create dummy info, there should be a admin account (email: admin@test.com, password: Password@123) and a user account (email: user@test.com, password: Password@123) you can experiment with.
 
 ## Known Bugs
 
