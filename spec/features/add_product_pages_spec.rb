@@ -23,4 +23,21 @@ describe "the add a product process" do
     click_on 'Create Product'
     expect(page).to have_content "Name can't be blank"
   end
+
+  it "doesn't allow non-admin users access to create products" do
+    user2 = User.create!(:email => 'testier@test.com', :password => 'Password@123')
+    login_as(user2, :scope => :user)
+    visit home_path
+    expect(page).to_not have_content 'add product'
+    #this link is hidden if not an admin.
+  end
+
+  it "doesn't allow non-admin users access to create products" do
+    user2 = User.create!(:email => 'testier@test.com', :password => 'Password@123')
+    login_as(user2, :scope => :user)
+    visit new_product_path
+    expect(page).to have_content "Welcome to Mario's Market"
+    expect(page).to have_content "Sorry, this requires admin privileges."
+    #redirects to homepage if not an admin.
+  end
 end
